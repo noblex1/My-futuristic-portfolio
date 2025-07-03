@@ -27,7 +27,7 @@ const SkillsSection = () => {
   const categories = [
     { id: 'languages', name: 'Languages', icon: Code, color: 'from-green-500 to-teal-500' },
     { id: 'frameworks', name: 'Frameworks', icon: Cpu, color: 'from-blue-500 to-purple-500' },
-    { id: 'tools', name: 'Tools', icon: Tool, color: 'from-orange-500 to-red-500' },
+    { id: 'tools', name: 'Tools', icon: Settings, color: 'from-orange-500 to-red-500' },
     { id: 'cybersecurity', name: 'Cybersecurity', icon: Shield, color: 'from-red-500 to-pink-500' }
   ];
 
