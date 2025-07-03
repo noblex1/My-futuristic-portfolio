@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Code, Cpu, Shield, Tool } from 'lucide-react';
+import { Code, Cpu, Shield, Settings } from 'lucide-react';
 import { skills } from '../data/mockData';
 
 const SkillsSection = () => {
