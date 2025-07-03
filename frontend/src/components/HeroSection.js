@@ -1,18 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Download, Mail, Github, Linkedin, Twitter } from 'lucide-react';
+import { ChevronDown, Download, Mail, Github, Linkedin, Twitter, MapPin, Calendar, Code2, Shield } from 'lucide-react';
 import { personalInfo } from '../data/mockData';
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
   const phrases = [
     "Building the Future with Code",
-    "AI & Cybersecurity Enthusiast",
+    "AI & Cybersecurity Enthusiast", 
     "Passionate Software Engineer",
-    "Innovation Through Technology"
+    "Innovation Through Technology",
+    "Machine Learning Explorer",
+    "Ethical Hacking Specialist"
   ];
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   useEffect(() => {
     const currentPhrase = phrases[currentIndex];
@@ -21,7 +32,7 @@ const HeroSection = () => {
         if (displayText.length < currentPhrase.length) {
           setDisplayText(currentPhrase.slice(0, displayText.length + 1));
         } else {
-          setTimeout(() => setIsDeleting(true), 2000);
+          setTimeout(() => setIsDeleting(true), 3000);
         }
       } else {
         if (displayText.length > 0) {
@@ -31,7 +42,7 @@ const HeroSection = () => {
           setCurrentIndex((prevIndex) => (prevIndex + 1) % phrases.length);
         }
       }
-    }, isDeleting ? 100 : 150);
+    }, isDeleting ? 80 : 120);
 
     return () => clearTimeout(timeout);
   }, [displayText, currentIndex, isDeleting]);
